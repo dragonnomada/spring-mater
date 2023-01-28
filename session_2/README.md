@@ -329,3 +329,171 @@ public ResponseEntity<Resource> reportar(@RequestParam("file") MultipartFile fil
     
 }
 ```
+
+DOCS: 
+
+* Configurar un proyecto con Spring Boot y Hibernate - [https://medium.com/full-stack-java/configurar-un-proyecto-con-spring-boot-y-hibernate-5893125888cf](https://medium.com/full-stack-java/configurar-un-proyecto-con-spring-boot-y-hibernate-5893125888cf)
+* Modelar un Negocio en Spring Boot y Hibernate — Parte I [https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-i-a8978d72e413](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-i-a8978d72e413)
+* Modelar un Negocio en Spring Boot y Hibernate — Parte II [https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-ii-67c59640cd07](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-ii-67c59640cd07)
+* Modelar un Negocio en Spring Boot y Hibernate — Parte III [https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-iii-109b298a7d73](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-iii-109b298a7d73)
+
+
+> `Fruta.java`
+
+```java
+package com.nomadacode.s204_hibernate_mysql;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+// CLASE POJO (Plain Old Java Object)
+// DTO (Data Transactional Object)
+
+@Entity
+@Table(name = "frutas")
+public class Fruta {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	int id;
+	
+	@Column(name = "name")
+	String nombre;
+	
+	@Column(name = "price")
+	double precio;
+	
+	@Column(name = "quantity")
+	double cantidad;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public double getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(double cantidad) {
+		this.cantidad = cantidad;
+	}
+	
+}
+
+```
+
+> `FrutaRepository.java`
+
+```java
+package com.nomadacode.s204_hibernate_mysql;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import jakarta.transaction.Transactional;
+
+@Transactional
+public interface FrutaRepository extends CrudRepository<Fruta, Integer> {
+
+	// Crear queries personalizados
+	@Query(value = "SELECT * FROM frutas WHERE price >= :minPrice", nativeQuery = true)
+	public Iterable<Fruta> getByPrecioGreatherThan(@Param("minPrice") double minPrice);
+	
+}
+```
+
+> `FrutaService.java`
+
+```java
+package com.nomadacode.s204_hibernate_mysql;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FrutaService {
+
+	@Autowired
+	FrutaRepository frutaRepository;
+	
+}
+```
+
+> `FrutaApi.java`
+
+```java
+package com.nomadacode.s204_hibernate_mysql;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FrutaApi {
+
+	@Autowired
+	FrutaService frutaService;
+	
+	@GetMapping("/api/frutas")
+	public Iterable<Fruta> getAllFrutas() {
+		
+		return frutaService.frutaRepository.findAll();
+		
+	}
+	
+	@PutMapping("/api/frutas/nueva")
+	public Fruta createFruta(@RequestBody Fruta fruta) {
+		
+		return frutaService.frutaRepository.save(fruta);
+		
+	}
+	
+	@GetMapping("/api/frutas/{id}")
+	public Optional<Fruta> getFrutaById(@PathVariable("id") int id) {
+		
+		return frutaService.frutaRepository.findById(id);
+		
+	}
+	
+	@GetMapping("/api/frutas/precio")
+	public Iterable<Fruta> getFrutaByIdWithPrecio(
+			@RequestParam(name = "min", defaultValue = "0") double minPrecio
+	) {
+		
+		return frutaService.frutaRepository.getByPrecioGreatherThan(minPrecio);
+		
+	}
+	
+}
+```
