@@ -337,6 +337,22 @@ DOCS:
 * Modelar un Negocio en Spring Boot y Hibernate — Parte II [https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-ii-67c59640cd07](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-ii-67c59640cd07)
 * Modelar un Negocio en Spring Boot y Hibernate — Parte III [https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-iii-109b298a7d73](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-iii-109b298a7d73)
 
+> `application.properties`
+
+```text
+spring.datasource.url=jdbc:mysql://localhost:3306/tienda_frutas
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+
+spring.datasource.username=root
+spring.datasource.password=password
+
+spring.datasource.dbcp2.test-while-idle=true
+spring.r2dbc.pool.validation-query=SELECT NOW()
+spring.jpa.hibernate.ddl-auto=update
+
+server.port=8181
+```
 
 > `Fruta.java`
 
