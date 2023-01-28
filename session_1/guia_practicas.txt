@@ -1,0 +1,46 @@
+class FrutaEntity {
+
+  int id;
+  String nombre;
+  double cantidad;
+
+  // getters and setters
+
+}
+
+class FrutaService {
+
+  List<FrutaEntity> frutas = new ArrayList<>();
+
+  public List<FrutaEntity> getFrutas() {
+    return frutas;
+  }
+
+  public FrutaEntity getFrutaById(int id) {
+    ...
+    return frutaEncontrada
+  }
+
+  public FrutaEntity updateFrutaByNombre(int id, String nombre) {
+     FrutaEntity fruta = getFrutaById(id);
+     fruta.setNombre(nombre);
+     return fruta;
+  }
+
+  ...
+
+}
+
+@RestController
+class FrutaApi {
+
+   FrutaService servicioFrutas = new FrutaService();
+
+   @GetMapping("/api/frutas")
+   public List<FrutaEntity> getFrutas() {
+     return servicioFrutas.getFrutas();
+   }
+
+    ...
+
+}
