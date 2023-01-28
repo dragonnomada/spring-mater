@@ -332,10 +332,10 @@ public ResponseEntity<Resource> reportar(@RequestParam("file") MultipartFile fil
 
 DOCS: 
 
-* Configurar un proyecto con Spring Boot y Hibernate - [https://medium.com/full-stack-java/configurar-un-proyecto-con-spring-boot-y-hibernate-5893125888cf](https://medium.com/full-stack-java/configurar-un-proyecto-con-spring-boot-y-hibernate-5893125888cf)
-* Modelar un Negocio en Spring Boot y Hibernate — Parte I [https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-i-a8978d72e413](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-i-a8978d72e413)
-* Modelar un Negocio en Spring Boot y Hibernate — Parte II [https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-ii-67c59640cd07](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-ii-67c59640cd07)
-* Modelar un Negocio en Spring Boot y Hibernate — Parte III [https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-iii-109b298a7d73](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-iii-109b298a7d73)
+* [Configurar un proyecto con Spring Boot y Hibernate](https://medium.com/full-stack-java/configurar-un-proyecto-con-spring-boot-y-hibernate-5893125888cf)
+* [Modelar un Negocio en Spring Boot y Hibernate — Parte I](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-i-a8978d72e413)
+* [Modelar un Negocio en Spring Boot y Hibernate — Parte II](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-ii-67c59640cd07)
+* [Modelar un Negocio en Spring Boot y Hibernate — Parte III](https://medium.com/full-stack-java/modelar-un-negocio-en-spring-boot-y-hibernate-parte-iii-109b298a7d73)
 
 > `application.properties`
 
