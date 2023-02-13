@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products All</title>
+</head>
+<body>
+
+<div>
+
+    <style>
+        .picture {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .label-id {
+            color: gray;
+        }
+
+        .label-name {
+            color: cornflowerblue;
+        }
+
+        .label-price {
+            color: hotpink;
+        }
+
+        .row:nth-child(odd) {
+            background-color: gainsboro;
+        }
+
+    </style>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Picture</th>
+                <th>Detalles</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr class="row" th:each="product: ${products}">
+                <td>
+                    <span class="label-id" th:text="${product.getLabelId()}">#123</span>
+                </td>
+                <td>
+                    <span class="label-name" th:text="${product.getName()}">Coca Cola</span>
+                </td>
+                <td>
+                    <span class="label-price" th:text="${product.getLabelPrice()}">$9.99</span>
+                </td>
+                <td>
+                    <img class="picture" src="https://picsum.photos/400" th:src="${product.getPicture()}" />
+                </td>
+                <td>
+                    <a href="#" th:href="@{/products/{id}(id=${product.getId()})}">ver detalles</a>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

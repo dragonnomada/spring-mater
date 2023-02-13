@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo App</title>
+</head>
+<body>
+
+  <h1>Título</h1>
+  <h2>Subtítulo</h2>
+
+  <h4>Texto cabecera</h4>
+
+  <p>Este es un parráfo para texto largo que se dispondrá en una línea</p>
+
+  <div>
+    <span>Este es un texto dentro de una caja</span>
+    <span style="font-weight: bold">Este es otro texto en la misma caja</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; color: red">
+    <span>Este es un texto dentro de una caja</span>
+    <span>Este es otro texto en la misma caja</span>
+  </div>
+
+  <div class="product-form-container">
+    <form class="product-form">
+
+      <style>
+        .product-form-container {
+          display: flex;
+          justify-content: center;
+          padding: 64px;
+        }
+
+        .product-form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: whitesmoke;
+          border-radius: 10px;
+          box-shadow: 0px 0px 16px 4px rgba(0, 255, 255, 0.5);
+        }
+
+        .product-form > * {
+          margin: 10px;
+          width: calc(100% - 40px);
+        }
+
+        .image-logo {
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+          border: 4px dashed red;
+          border-radius: 50%;
+          box-shadow: 16px 16px 32px 8px rgba(0, 0, 0, 0.5);
+        }
+      </style>
+
+      <h2 style="text-align: center; padding-bottom: 8px; border-bottom: 1px solid gray">Bienvenido, registrate</h2>
+
+      <input class="image-logo" type="image" src="https://th.bing.com/th/id/R.ad8a3117fc136ec075fb462c09528e31?rik=ZxYL0nCjva9t7Q&pid=ImgRaw&r=0">
+
+      <input placeholder="Escribe algo...">
+      <input type="password" placeholder="Escribe una contraseña...">
+      <input type="email" placeholder="Escribe tu correo..." required>
+
+      <input type="color" value="#f80021">
+      <input type="datetime-local">
+      <input type="month">
+      <input type="week">
+      <input type="time">
+      <input type="date">
+
+      <div>
+        <input type="checkbox"> <label>¿Es correcto?</label>
+      </div>
+
+      <div>
+        <input type="radio" name="sexo"> <label>Hombre</label>
+        <input type="radio" name="sexo"> <label>Mujer</label>
+        <input type="radio" name="sexo"> <label>Otro</label>
+      </div>
+
+      <input type="file">
+
+      <input type="range" min="1" max="100" value="10">
+
+      <input type="reset" value="limpiar">
+
+      <input type="submit" value="enviar">
+
+    </form>
+  </div>
+
+</body>
+</html>
