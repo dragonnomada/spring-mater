@@ -1,22 +1,27 @@
 # Java Spring Master Class 2
 
-* ¿Qué son los microservicios? Servidores de recursos con peticiones y respuestas cortas
-* ¿Qué es Java? Un lenguaje para crear objetos que retienen estados
-* ¿Qué es Java Spring? Un conjunto de herramientas para crear aplicaciones seguras
-* ¿Qué es Java Spring Web? Herramientas para crear un servidor en la nube (aplicación web)
-* ¿Qué es un API? Transacciones coordinadas en múltiples recursos
-* ¿Qué es REST? Estructura de las peticiones
-* ¿Qué es RESTFul? Estructura las peticiones con métodos más semánticos
-* ¿Qué es @RestController? Clase que define métodos para mapear rutas en respuestas
-* ¿Qué es @GetMapping? Mapeo tipo GET de una ruta a un valor (simple o complejo)
-* ¿Qué es @PostMapping? Mapeo tipo POST de una ruta a un valor (simple o complejo)
-* ¿Qué es @PathVariable("`<name>`")? Es recuperar un valor variable desde la url en una posición dada
-* ¿Qué es @PutMapping? Mapeo tipo PUT de una ruta a un valor (simple o complejo)
-* ¿Qué es @DeleteMapping? Mapeo tipoDELETE de una ruta a un valor (simple o complejo)
-* ¿Qué es una Entidad?  Una clase que representa un modelo de datos
-* ¿Qué es @RequestBody? La forma de recuperar los datos de una entidad en el API
-* ¿Qué es un Servicio? Una clase que define las operaciones y transacciones lógicas
-
+* ¿Para qué sirve `ResponseEntity<T>`?
+* ¿Para qué sirve `@RequestParam`?
+* ¿Cómo funciona `MultipartFile`?
+* ¿Cómo devolver un estatus Http con `ResponseEntity.status(HttpStatus.<STATUS>)`?
+* ¿Cómo transferir el archivo subido con `file.transferTo(new File(path))`?
+* ¿Cómo devolver un estatus exitóso con ` ResponseEntity.ok(<body>)`?
+* ¿Para qué sirve `ResponseEntity<Resource>`?
+* ¿Cómo funciona `Resource`?
+* ¿Cómo crear un `Resource` con `Resource <- InputStreamResource <- InputStream <- ByteArrayInputStream <- byte[]`? 
+* ¿Para qué sirve el *header* `.header("content-disposition", "attachment; filename=<file name>")` de `ResponseEntity`?
+* ¿Para qué sirve el *header* `.header("content-type", "application/octet-stream")` de `ResponseEntity`?
+* ¿Para qué sirve el *contentLength* `.contentLength(<file length>)` de `ResponseEntity`?
+* ¿Para qué sirve el *body* `..body(<resource>)` de `ResponseEntity`?
+* ¿Para qué sirve `@Entity` de *JPA*?
+* ¿Para qué sirve `@Table(name = "<table name>")` de *JPA*?
+* ¿Para qué sirve `@Id` de *JPA*?
+* ¿Para qué sirve `@GeneratedValue(strategy = GenerationType.AUTO)` de *JPA*?
+* ¿Para qué sirve `@Column(name = "<column name>")` de *JPA*?
+* ¿Para qué sirve crear la interfaz `public interface [Entity Repository] extends CrudRepository<[Entity], [Type Id]>` de *JPA*?
+* ¿Cómo se define un *query* nativo en el repositorio *crud* como `@Query(value = "<query con :params>", nativeQuery = true)`?
+* ¿Para qué sirve `@Autowired`?
+* ¿Para qué sirve `@RequestBody`?
 
 ## Práctica 3
 
